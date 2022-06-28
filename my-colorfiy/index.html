@@ -8,14 +8,47 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<title>Document</title>
+		<style>
+			.backColor {
+				color: antiquewhite;
+			}
+		</style>
 	</head>
 
 	<body>
-		<img
-			id="myImage"
-			src="https://images.unsplash.com/photo-1440407876336-62333a6f010f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhdmVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
-		/>
-		<canvas id="myCanvas" width="400" height="266"></canvas>
-		<script src="./ddd.js"></script>
+		<img src="Screenshot 2022-06-19 at 15.10.46.png" />
+		<div class="backColor">colorChip</div>
+		<canvas id="canvas"></canvas>
+
+		<!-- <script src="./ddd.js"></script> -->
+		<script>
+			const myImg = new Image();
+			myImg.crossOrigin = 'Anonymous';
+
+			myImg.src = 'Screenshot 2022-06-19 at 15.10.46.png';
+
+			myImg.onload = () => {
+				const context = document.createElement('canvas').getContext('2d');
+				context.drawImage(myImg, 0, 10);
+				const { data } = context.getImageData(10, 10, 1, 1);
+				console.log('이거임', data);
+				return data;
+			};
+
+			function draw() {
+				var ctx = document.getElementById('canvas').getContext('2d');
+				for (var i = 0; i < 6; i++) {
+					for (var j = 0; j < 6; j++) {
+						ctx.fillStyle =
+							'rgb(' +
+							Math.floor(255 - 42.5 * i) +
+							', ' +
+							Math.floor(255 - 42.5 * j) +
+							', 0)';
+						ctx.fillRect(j * 25, i * 25, 25, 25);
+					}
+				}
+			}
+		</script>
 	</body>
 </html>
