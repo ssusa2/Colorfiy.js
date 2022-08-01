@@ -1,27 +1,22 @@
 /** @format */
-import React from 'react';
-import styled from 'styled-components';
-import ComponentA from './HOC/ComponentA';
-import ComponentB from './HOC/ComponentB';
-import ComponentC from './HOC/ComponentC';
 
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import About from './About';
+import Home from './Home';
+import Profile from './Profile';
+import EEE from './UseEffectExample';
+import Copy from './Copy';
 
-function App() {
-	/** @format */
+const App = () => {
 	return (
-		<>
-			<ComponentA />
-			<ComponentB />
-			<ComponentC />
-		</>
+		<Copy />
+		// <Routes>
+		// 	<Route path='/' element={<Home />} />
+		// 	<Route path='/example' element={<EEE />} />
+		// 	<Route path='/about' element={<About />} />
+		// 	<Route path='/profiles/:username' element={<Profile />} />
+		// </Routes>
 	);
-}
+};
 
 export default App;
-
-const Block = styled.div`
-	display: flex;
-	width: 100px;
-	height: 400px;
-`;
